@@ -1,0 +1,50 @@
+.ingredients-section{
+    width: 100%;
+    /* height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgba(71, 158, 180, 1); */
+
+}
+
+
+
+.ingredients-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    /* height: 100%; */
+    background-color: rgba(71, 158, 180, 1);
+    z-index: 3;
+    margin-top: 50%;
+
+}
+
+.ingredients-box{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    width: 50%;
+    height:100%;
+    background-color: rgba(71, 158, 180, 1);
+    z-index: 3;
+}
+
+.ingredient-individual-box{
+    width: 30%;
+    height: 33%;
+    margin: 0 5px;
+    background-color: #fff;
+}
+
+.ingredient-individual-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
