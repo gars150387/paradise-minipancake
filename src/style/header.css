@@ -6,19 +6,17 @@
 }
 
 .header-img{
-    width: 100%;
-    /* height: 60vh; */
     position: fixed;
     left: 0%;
-    top: 15%;
+    top: 0%;
     object-fit: cover;
     object-position: center;
     z-index: -1;
-}
-
-.header-img img{
     width: 100%;
 }
+
+/* .header-img img{
+} */
 
 .shopping{
     position: fixed;
@@ -28,11 +26,11 @@
     font-size: 30px;
     font-weight: 600;
     font-family: 'Edo', sans-serif;
-    width: 10%;
     height: 5vh;
     box-shadow: 1px 0 4px 6px rgba(0, 0, 0, 0.6);
     transition: all 0.5s;
     z-index: -1;
+    width: 8%;
 }
 
 .shopping:hover{
