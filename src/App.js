@@ -1,36 +1,19 @@
-import { Advertisment } from './components/Advertisment';
-import { Footer } from './components/Footer';
-import { Gallery } from './components/Gallery';
-import { Header } from './components/Header';
-import { Ingredients } from './components/Ingredients';
-import { Navbar } from './components/Navbar';
-import { NavbarSocialMedia } from './components/NavbarSocialMedia';
-
+import {
+  Routes,
+  Route,
+} from "react-router-dom";
+import { Login } from "./auth/Login";
+import { Register } from "./auth/Register";
+import { AppMain } from "./router/AppMain";
 
 function App() {
   return (
     <div className="App">
-      <section>
-        <Navbar />
-      </section>
-      <section>
-        <NavbarSocialMedia />
-      </section>
-      <section>
-        <Header />
-      </section>
-      <section>
-        <Ingredients />
-      </section>
-      <section>
-        <Gallery />
-      </section>
-      <section>
-        <Advertisment />
-      </section>
-      <section>
-        <Footer />
-      </section>
+      <Routes>
+      <Route path="/" element={<AppMain />}></Route>
+      <Route exact path="/login" element={<Login />}></Route>
+      <Route exact path="/register" element={<Register />}></Route>
+      </Routes>
     </div>
   );
 }
