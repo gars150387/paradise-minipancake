@@ -7,20 +7,20 @@
   align-items: center;
 }
 
-.register-logo{
-    width: 10%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 30px;
+.register-logo {
+  width: 10%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 30px;
 }
 
-.register-logo .nav-socialMedia{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+.register-logo .nav-socialMedia {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .register-form {
@@ -34,70 +34,84 @@
   box-shadow: 1px 1px 4px 3px rgba(0, 0, 0, 0.5);
 }
 
-.register-group:last-child(){
-    display: flex;
-    justify-self: center;
+.register-group:last-child() {
+  display: flex;
+  justify-self: center;
 }
 
-.register-group{
-    width: 80%;
-    height: 60%;
-    display: flex;
-    flex-direction: column;
+.register-group {
+  width: 80%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
 }
 
-.group-container{
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    margin: 15px 10px;
+.group-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 15px 10px;
 }
 
-.group-container label{
-    font-size: 25px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    font-family: 'Coustard', serif;
-    width: 30%;
+.group-container label {
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-family: "Coustard", serif;
+  width: 30%;
 }
 
-.group-container input{
-    width: calc(100% - 40%);
-    padding-left: 15px;
-    box-shadow: 1px 2px 4px 3px #02a9eb;
-    border-radius: 50px;
-    outline: none;
-    border: none;
-    height: 35px;
+.group-container input {
+  width: calc(100% - 40%);
+  padding-left: 15px;
+  box-shadow: 1px 2px 4px 3px #02a9eb;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  height: 35px;
 }
 
 #input-email,
 #input-password,
 #input-firstName,
-#input-lastName{
-    width: 350px;
+#input-lastName {
+  width: 350px;
 }
 
-
-.checkbox{
-    width: 800px;
-    display: center;
-    justify-content: center;
+.checkbox {
+  width: 800px;
+  display: center;
+  justify-content: center;
 }
 
-.form-check-text{
-    width: 60%;
-
+.form-check-text {
+  width: 60%;
 }
 
-.checkbox input{
-    height: 15px;
-    width: 5%;
+.checkbox input {
+  height: 15px;
+  width: 4%;
 }
 
-.btn{
-    width: 20%;
-    height: 30px;
-    font-size: 20px;
-    font-family: " Coustard", serif
+.btn {
+  width: 20%;
+  height: 30px;
+  font-size: 20px;
+  font-family: " Coustard", serif;
+}
+
+.btn:hover{
+    font-size: 23px;
+    background-color: #00800070;
+}
+
+.link-login {
+  margin-top: 4%;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.link-login:hover{
+    color: #fff;
+
 }
