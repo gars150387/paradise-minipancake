@@ -22,28 +22,54 @@ export const Register = () => {
     inputChange();
   };
 
+  const handleWhatsappLink = (e) => {
+    e.preventDefault();
+    window.open("https://wa.me/p/4855065104588916/", "_blank");
+  };
+
+  const handleInstagramLink = (e) => {
+    e.preventDefault();
+    window.open("https://www.instagram.com/paradiseminnipancakes/", "_blank");
+  };
+
+  const handleTiktokLink = (e) => {
+    e.preventDefault();
+    window.open("https://www.tiktok.com/@paradiseminnipancakes", "_blank");
+  };
+
+  const handleFacebookLink = (e) => {
+    e.preventDefault();
+    window.open("https://www.facebook.com/paradiseminnipancakes", "_blank");
+  };
+
   return (
     <div className="register-container">
       <div className="register-logo">
         <nav className="nav-socialMedia">
           <div className="icon-socialMedia">
             <span>
-              <FaFacebookF className="inner-icon" />
+              <FaFacebookF
+                onClick={handleFacebookLink}
+                className="inner-icon"
+              />
             </span>
           </div>
           <div className="icon-socialMedia">
             <span>
-              <FaInstagram className="inner-icon" />
+              <FaInstagram
+                onClick={handleInstagramLink}
+                className="inner-icon"
+              />
             </span>
           </div>
           <div className="icon-socialMedia">
             <span>
-              <FaTiktok className="inner-icon" />
+              <FaTiktok onClick={handleTiktokLink} className="inner-icon" />
             </span>
           </div>
           <div className="icon-socialMedia">
             <span>
-              <FaWhatsapp className="inner-icon" />
+              <FaWhatsapp onClick={handleWhatsappLink} className="inner-icon" />
             </span>
           </div>
         </nav>
@@ -145,9 +171,13 @@ export const Register = () => {
             className="form-check-text"
           />
         </Form.Group>
-        <Button type="submit">Submit</Button>
-        <Link to='/login'>
-                  <div className="link-login">If you are have an account, please click this link to login</div>
+        <Link to="/shoppingCart">
+          <Button type="submit">Submit</Button>
+        </Link>
+        <Link to="/login">
+          <div className="link-login">
+            If you are have an account, please click this link to login
+          </div>
         </Link>
       </Form>
     </div>
