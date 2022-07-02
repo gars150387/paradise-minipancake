@@ -1,13 +1,15 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import { Form, Row, Col, InputGroup, Button } from "react-bootstrap";
-import {FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa'
+import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 
 import "../style/register.css";
-import '../style/button.css'
+import "../style/button.css";
 
 export const Register = () => {
   const [validated, setValidated] = useState(false);
-  const [inputChange] = useState('')
+  const [inputChange] = useState("");
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -16,20 +18,35 @@ export const Register = () => {
       event.stopPropagation();
     }
 
-
     setValidated(true);
-    inputChange()
+    inputChange();
   };
 
   return (
     <div className="register-container">
       <div className="register-logo">
-        <nav className='nav-socialMedia'>
-        <div className='icon-socialMedia'><span><FaFacebookF className='inner-icon' /></span></div>
-        <div className='icon-socialMedia'><span><FaInstagram className='inner-icon'  /></span></div>
-        <div className='icon-socialMedia'><span><FaTiktok className='inner-icon'  /></span></div>
-        <div className='icon-socialMedia'><span><FaWhatsapp className='inner-icon'  /></span></div>
-    </nav>
+        <nav className="nav-socialMedia">
+          <div className="icon-socialMedia">
+            <span>
+              <FaFacebookF className="inner-icon" />
+            </span>
+          </div>
+          <div className="icon-socialMedia">
+            <span>
+              <FaInstagram className="inner-icon" />
+            </span>
+          </div>
+          <div className="icon-socialMedia">
+            <span>
+              <FaTiktok className="inner-icon" />
+            </span>
+          </div>
+          <div className="icon-socialMedia">
+            <span>
+              <FaWhatsapp className="inner-icon" />
+            </span>
+          </div>
+        </nav>
       </div>
       <Form
         className="register-form"
@@ -37,7 +54,12 @@ export const Register = () => {
         onSubmit={handleSubmit}
       >
         <Row className="mb-3 register-group">
-          <Form.Group as={Col} md="4" controlId="validationCustom01" className="group-container">
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom01"
+            className="group-container"
+          >
             <Form.Label>First name</Form.Label>
             <Form.Control
               required
@@ -47,7 +69,12 @@ export const Register = () => {
               id="input-firstName"
             />
           </Form.Group>
-          <Form.Group as={Col} md="4" controlId="validationCustom02" className="group-container">
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustom02"
+            className="group-container"
+          >
             <Form.Label>Last name</Form.Label>
             <Form.Control
               required
@@ -57,7 +84,12 @@ export const Register = () => {
               id="input-lastName"
             />
           </Form.Group>
-          <Form.Group as={Col} md="4" controlId="validationCustomUsername" className="group-container">
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationCustomUsername"
+            className="group-container"
+          >
             <Form.Label>Email</Form.Label>
             <InputGroup hasValidation>
               <Form.Control
@@ -69,7 +101,12 @@ export const Register = () => {
               />
             </InputGroup>
           </Form.Group>
-          <Form.Group as={Col} md="4" controlId="validationPassword" className="group-container">
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationPassword"
+            className="group-container"
+          >
             <Form.Label>Password</Form.Label>
             <InputGroup hasValidation>
               <Form.Control
@@ -81,7 +118,12 @@ export const Register = () => {
               />
             </InputGroup>
           </Form.Group>
-          <Form.Group as={Col} md="4" controlId="validationPassword" className="group-container">
+          <Form.Group
+            as={Col}
+            md="4"
+            controlId="validationPassword"
+            className="group-container"
+          >
             <Form.Label>Confirm password</Form.Label>
             <InputGroup hasValidation>
               <Form.Control
@@ -91,7 +133,6 @@ export const Register = () => {
                 required
                 id="input-password"
               />
-
             </InputGroup>
           </Form.Group>
         </Row>
@@ -105,6 +146,9 @@ export const Register = () => {
           />
         </Form.Group>
         <Button type="submit">Submit</Button>
+        <Link to='/login'>
+                  <div className="link-login">If you are have an account, please click this link to login</div>
+        </Link>
       </Form>
     </div>
   );
