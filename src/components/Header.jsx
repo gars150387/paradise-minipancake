@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 
 import "../style/header.css";
 import "../style/button.css";
@@ -11,7 +13,9 @@ export const Header = () => {
         src={require("../images/advertisment.jpg")}
         alt="head-img"
       />
-        <button className="btn shopping">Shop</button>
+      <Link to="/register">
+      <button className="btn shopping">Shop</button>
+      </Link>
     </div>
   );
 };
