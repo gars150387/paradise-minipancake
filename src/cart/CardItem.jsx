@@ -3,7 +3,7 @@
 import '../style/cardItem.css'
 
 
-export const CardItem = ({ item }) => {
+export const CardItem = ({ item, handleAddItemInCart }) => {
   const { id, title, author, price, img } = item;
 
   return (
@@ -18,7 +18,7 @@ export const CardItem = ({ item }) => {
       <div>
         <strong>{price}</strong>
       </div>
-      <button className='button-add'>Add</button>
+      <button onClick={ () => handleAddItemInCart( item )} className='button-add'>Add</button>
     </div>
   );
 };
