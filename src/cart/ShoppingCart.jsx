@@ -10,6 +10,7 @@ export const ShoppingCart = () => {
   const [cart, setCart] = useState([])
 
   const handleAddItemInCart = ( item ) =>{
+    setCart()
     console.log( 'cart',cart, 'item', item )
 
   }
