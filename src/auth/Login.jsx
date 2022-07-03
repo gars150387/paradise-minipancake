@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 
-import { NavbarSocialMedia } from "../components/NavbarSocialMedia";
-
 import "../style/login.css";
 
 export const Login = () => {
