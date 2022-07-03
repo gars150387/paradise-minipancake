@@ -4,7 +4,7 @@ import '../style/cardItem.css'
 
 
 export const CardItem = ({ item, handleAddItemInCart }) => {
-  const { id, title, author, price, img } = item;
+  const { title, author, price, img } = item;
 
   return (
     <div className="card">
