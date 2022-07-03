@@ -1,0 +1,9 @@
+
+.shoppingCart-section{
+    width: 80%;
+    margin: 5% auto;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+}

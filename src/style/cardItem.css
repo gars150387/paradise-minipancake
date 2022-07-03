@@ -1,0 +1,29 @@
+.card{
+    width: 250px;
+    padding: 20px;
+}
+
+.card:hover{
+    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card img{
+    width: 150px;
+    height: 200px;
+}
+
+.card-title{
+    margin-top: 2%;
+}
+
+.button-add{
+    margin-top: 5%;
+    background-color: #24aa24;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    width: 50px;
+    height: 20px;
+    cursor: pointer;
+    
+}
