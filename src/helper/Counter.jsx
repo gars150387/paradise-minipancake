@@ -26,7 +26,6 @@ export const Counter = ({ amount }) => {
     <div>              
         <button onClick={ handleDecrease }>-</button>
         {increase}
-        {console.log('increase', increase )}
         <button onClick={ handleIncrease }>+</button>
     </div>
   )
