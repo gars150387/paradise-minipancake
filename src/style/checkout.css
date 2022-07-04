@@ -1,0 +1,27 @@
+.checkout-container{
+    width: 80%;
+    margin: 3% auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Coutard', serif;
+    }
+
+.card-checkout{
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px 7%;
+    background-color: aqua;
+    border-radius: 0 20px 20px 0; /* top left , top right, bottomo right, bottom left*/
+}
+.card-checkout img{
+    width: 5%;
+}
+
+.info-container{
+    margin: 0 5%;
+    width: 40%;
+}
