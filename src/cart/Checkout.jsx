@@ -17,7 +17,7 @@ export const Checkout = ({ cart, setCart }) => {
       {cart.map(({ id, title, author, price, img, amount }) => {
         return (
           <div className="card-checkout" key={id}>
-            <img src={img} />
+            <img src={img} alt='checkout img' />
             <div className="info-container">
               <h1>{title}</h1>
               <p>{author}</p>
