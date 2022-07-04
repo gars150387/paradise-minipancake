@@ -15,10 +15,8 @@ export const ShoppingCart = () => {
 
   const handleAddItemInCart = ( item ) =>{
     setCart([...cart, item])
-    console.log('inside the function', cart)
   }
 
-  console.log( 'before to mapping', cart)
 
 
   return (
@@ -31,7 +29,6 @@ export const ShoppingCart = () => {
           <section className="shoppingCart-section">
           {list.map((item) => {
             return <CardItem handleAddItemInCart={ handleAddItemInCart } key={item.id} item={item} />;
-            {console.log( 'cart', cart)}
           })}
         </section>
         
