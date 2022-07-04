@@ -4,28 +4,42 @@ import { NavShopping } from "./NavShopping";
 
 import '../style/shoppingCart.css'
 import { useState } from "react";
+import { Checkout } from "./Checkout";
+
 
 export const ShoppingCart = () => {
+
+  const [show, setShow] = useState(true)
 
   const [cart, setCart] = useState([])
 
   const handleAddItemInCart = ( item ) =>{
-    setCart()
-    console.log( 'cart',cart, 'item', item )
-
+    setCart([...cart, item])
+    console.log('inside the function', cart)
   }
+
+  console.log( 'before to mapping', cart)
 
 
   return (
     <div>
       <div>
-        <NavShopping />
+        <NavShopping setShow={ setShow } cart={ cart } show={ show } />
       </div>
-      <section className="shoppingCart-section">
-        {list.map((item) => {
-          return <CardItem handleAddItemInCart={ handleAddItemInCart } key={item.id} item={item} />;
-        })}
-      </section>
+
+      { show ? (
+          <section className="shoppingCart-section">
+          {list.map((item) => {
+            return <CardItem handleAddItemInCart={ handleAddItemInCart } key={item.id} item={item} />;
+            {console.log( 'cart', cart)}
+          })}
+        </section>
+        
+      ) :  ( 
+      <section>
+        <Checkout cart={ cart } setCart={ setCart }/>
+      </section> )}
+    
     </div>
   );
 };
