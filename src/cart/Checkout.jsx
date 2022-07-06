@@ -14,7 +14,8 @@ export const Checkout = ({ cart, setCart }) => {
 
   return (
     <div className="checkout-container">
-      {cart.map(({ id, title, author, price, img, amount }) => {
+      <div className="added-item-checkout">
+              {cart.map(({ id, title, author, price, img, amount }) => {
         return (
           <div className="card-checkout" key={id}>
             <img src={img} alt='checkout img' />
@@ -28,7 +29,7 @@ export const Checkout = ({ cart, setCart }) => {
 
             <Counter amount={amount} />
 
-            <div>
+            <div className="price-checkout">
               <h1>Price: {price} </h1>
             </div>
             <div>
@@ -37,6 +38,11 @@ export const Checkout = ({ cart, setCart }) => {
           </div>
         );
       })}
+
+      </div>
+      <div>
+
+      </div>
     </div>
   );
 };
