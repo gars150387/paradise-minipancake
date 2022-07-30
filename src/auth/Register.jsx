@@ -1,26 +1,25 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useForm } from "../hooks/useForm";
+import { useDispatch, useSelector } from 'react-redux'
 
-import { Form, Row, Col, InputGroup, Button } from "react-bootstrap";
+
 import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 
 import "../style/register.css";
 import "../style/button.css";
+import { startCreatingUserWithEmailPassword } from "../auth/auth/Thunk";
+import { useMemo } from "react";
+
+
+const formData = {
+  email: "",
+  password: "",
+  displayName: "",
+};
+
 
 export const Register = () => {
-  const [validated, setValidated] = useState(false);
-  const [inputChange] = useState("");
-
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    setValidated(true);
-    inputChange();
-  };
 
   const handleWhatsappLink = (e) => {
     e.preventDefault();
@@ -42,144 +41,107 @@ export const Register = () => {
     window.open("https://www.facebook.com/paradiseminnipancakes", "_blank");
   };
 
+  const { status, errorMessage } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+
+  const isAuthenticating = useMemo(() => status === "checking", [status]);
+
+  
+  const {
+    displayName,
+    email,
+    password,
+    city,
+    street,
+    zipCode,
+    phone,
+    onInputChange,
+    formState,
+  } = useForm(formData);
+
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+
+    dispatch(startCreatingUserWithEmailPassword(formState));
+    console.log({ email, password, displayName })
+  };
+
+
   return (
-    <div className="register-container">
-      <div className="register-logo">
-        <nav className="nav-socialMedia">
-          <div className="icon-socialMedia">
-            <span>
-              <FaFacebookF
-                onClick={handleFacebookLink}
-                className="inner-icon"
-              />
-            </span>
-          </div>
-          <div className="icon-socialMedia">
-            <span>
-              <FaInstagram
-                onClick={handleInstagramLink}
-                className="inner-icon"
-              />
-            </span>
-          </div>
-          <div className="icon-socialMedia">
-            <span>
-              <FaTiktok onClick={handleTiktokLink} className="inner-icon" />
-            </span>
-          </div>
-          <div className="icon-socialMedia">
-            <span>
-              <FaWhatsapp onClick={handleWhatsappLink} className="inner-icon" />
-            </span>
-          </div>
-        </nav>
-      </div>
-      <Form
-        className="register-form"
-        validated={validated}
-        onSubmit={handleSubmit}
-      >
-        <Row className="mb-3 register-group">
-          <Form.Group
-            as={Col}
-            md="4"
-            controlId="validationCustom01"
-            className="group-container"
-          >
-            <Form.Label>First name</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              placeholder="First name"
-              defaultValue={inputChange}
-              id="input-firstName"
-            />
-          </Form.Group>
-          <Form.Group
-            as={Col}
-            md="4"
-            controlId="validationCustom02"
-            className="group-container"
-          >
-            <Form.Label>Last name</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              placeholder="Last name"
-              defaultValue={inputChange}
-              id="input-lastName"
-            />
-          </Form.Group>
-          <Form.Group
-            as={Col}
-            md="4"
-            controlId="validationCustomUsername"
-            className="group-container"
-          >
-            <Form.Label>Email</Form.Label>
-            <InputGroup hasValidation>
-              <Form.Control
-                type="text"
-                placeholder="Email"
-                aria-describedby="inputGroupPrepend"
-                required
-                id="input-email"
-              />
-            </InputGroup>
-          </Form.Group>
-          <Form.Group
-            as={Col}
-            md="4"
-            controlId="validationPassword"
-            className="group-container"
-          >
-            <Form.Label>Password</Form.Label>
-            <InputGroup hasValidation>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                aria-describedby="inputGroupPrepend"
-                required
-                id="input-password"
-              />
-            </InputGroup>
-          </Form.Group>
-          <Form.Group
-            as={Col}
-            md="4"
-            controlId="validationPassword"
-            className="group-container"
-          >
-            <Form.Label>Confirm password</Form.Label>
-            <InputGroup hasValidation>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                aria-describedby="inputGroupPrepend"
-                required
-                id="input-password"
-              />
-            </InputGroup>
-          </Form.Group>
-        </Row>
-        <Form.Group className="mb-3 group-container checkbox">
-          <Form.Check
-            required
-            label="Agree to terms and conditions"
-            feedback="You must agree before submitting."
-            feedbackType="invalid"
-            className="form-check-text"
-          />
-        </Form.Group>
-        <Link to="/shoppingCart">
-          <Button type="submit">Submit</Button>
-        </Link>
-        <Link to="/login">
-          <div className="link-login">
-            If you are have an account, please click this link to login
-          </div>
-        </Link>
-      </Form>
-    </div>
-  );
-};
+            <div className="container login-container">
+                <div className="row">
+                    <div className="col-md-6 login-form-1">
+                        <h3>Ingreso</h3>
+                        <form>
+                            <div className="form-group">
+                                <input 
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Correo"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <input
+                                    type="password"
+                                    className="form-control"
+                                    placeholder="Contraseña"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <input 
+                                    type="submit"
+                                    className="btnSubmit"
+                                    value="Login" 
+                                />
+                            </div>
+                        </form>
+                    </div>
+    
+                    <div className="col-md-6 login-form-2">
+                        <h3>Registro</h3>
+                        <form>
+                            <div className="form-group">
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Nombre"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <input
+                                    type="email"
+                                    className="form-control"
+                                    placeholder="Correo"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <input
+                                    type="password"
+                                    className="form-control"
+                                    placeholder="Contraseña" 
+                                />
+                            </div>
+    
+                            <div className="form-group">
+                                <input
+                                    type="password"
+                                    className="form-control"
+                                    placeholder="Repita la contraseña" 
+                                />
+                            </div>
+    
+                            <div className="form-group">
+                                <input 
+                                    type="submit" 
+                                    className="btnSubmit" 
+                                    value="Crear cuenta" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+

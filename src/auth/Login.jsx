@@ -92,6 +92,20 @@ export const Login = () => {
           Login
         </Button>
         </Link>
+        <Link to='/shoppingCart'>
+        
+        <hr />
+        
+        <Button className="btn login" variant="primary" type="submit">
+          Google SignIn
+        </Button>
+        </Link>
+        <Link to='/shoppingCart'>
+        
+        <Button className="btn login" variant="primary" type="submit">
+          Facebook SignIn
+        </Button>
+        </Link>
         
         <Link to="/register">
           <div className="link-register">

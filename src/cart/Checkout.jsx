@@ -1,4 +1,3 @@
-import { Counter } from "../helper/Counter";
 import "../style/checkout.css";
 
 export const Checkout = ({ cart, setCart }) => {
@@ -24,7 +23,6 @@ export const Checkout = ({ cart, setCart }) => {
                 <h1>Unit Price: {price}</h1>
               </strong>
               <div className="counter-checkout">
-                <Counter price={ price } amount={amount} />
               </div>
 
               <div className="price-checkout">
