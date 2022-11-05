@@ -1,0 +1,9 @@
+.shop-cart-icon{
+display: flex;
+justify-content: flex-end;
+align-items: center;
+}
+
+.shop-cart-icon i{
+    font-size: 50px;
+    }
