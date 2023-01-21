@@ -3,7 +3,7 @@
     height: 10vh;
     background-color: rgba(71, 158, 180, 0.350);
     position: sticky;
-    top: 0px;
+    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,6 +21,7 @@
     font-size: 40px;
     object-position: center;
     transition: all 0.5s;
+    color: #fff;
 }
 
 .inner-icon{
@@ -28,7 +29,13 @@
 }
 
 .inner-icon:hover{
-    color: #fff;
+    color: #000;
     transform: scale(1.1);
     transition: all 0.5s;
+}
+.socialMedia-div{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 30vh;
 }

@@ -13,25 +13,23 @@
     object-position: center;
     z-index: -1;
     width: 100%;
+    height: 100vh;
+    margin-bottom: 80vh;
 }
 
 
 .shopping{
-    position: absolute;
-    top: 50%;
-    left: 42%;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
     font-family: 'Edo', sans-serif;
-    height: 5vh;
     box-shadow: 1px 0 4px 6px rgba(0, 0, 0, 0.6);
     transition: all 0.5s;
-    width: 14%;
+    width: fit-content;
+    background-color: #208800;
 }
 
 .shopping:hover{
     color: #212529;
     background-color: #fff;
     border: solid 1px rgba(0, 0, 0, 0.6);
-    font-size: 35px;
 }
