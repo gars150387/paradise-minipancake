@@ -1,33 +1,17 @@
-import { Advertisment } from '../components/Advertisment';
-import { Footer } from '../components/Footer';
-import { Gallery } from '../components/Gallery';
-import { Header } from '../components/Header';
-import { Ingredients } from '../components/Ingredients';
-import { NavbarSocialMedia } from '../components/NavbarSocialMedia';
-
+import { Header } from "../components/Header";
+import { Navbar } from "../components/Navbar";
+import { NavbarSocialMedia } from "../components/NavbarSocialMedia";
+import "../style/navbar-socialMedia.css";
 
 export const AppMain = () => {
   return (
-    <div className="">
-      <section>
+    <>
+      <div className="socialMedia-div">
+        <Navbar />
         <NavbarSocialMedia />
-      </section>
-      <section>
-        <Header />
-      </section>
-      <section>
-        <Ingredients />
-      </section>
-      <section>
-        <Gallery />
-      </section>
-      <section>
-        <Advertisment />
-      </section>
-      <section>
-        <Footer />
-      </section>
-    </div>
+      </div>
+      <Header />
+      
+    </>
   );
-}
-
+};
