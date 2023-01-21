@@ -2,6 +2,8 @@ import React from "react";
 import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 
 import "../style/navbar-socialMedia.css";
+import "../style/header.css"
+import { Link } from "react-router-dom";
 
 export const NavbarSocialMedia = () => {
   const handleWhatsappLink = (e) => {
@@ -35,6 +37,11 @@ export const NavbarSocialMedia = () => {
           <FaInstagram onClick={handleInstagramLink} className="inner-icon" />
         </span>
       </div>
+
+      <Link to="/shoppingCart">
+        <button className="shopping">Menu</button>
+      </Link>
+
       <div className="icon-socialMedia">
         <span>
           <FaTiktok onClick={handleTiktokLink} className="inner-icon" />
