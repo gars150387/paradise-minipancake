@@ -1,47 +1,42 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { ParadiseMinniApi } from "../api/ParadiseMinniApi";
+import { PaymentElement } from "../stripe/PaymentElement";
 import "../style/checkout.css";
+import { DeliveryAddress } from "./DeliveryAddress";
 
-export const Checkout = ({ cart, setCart }) => {
-  const handleRemovedItem = (id) => {
-    const removedItem = cart.filter((item) => item.id !== id);
-    setCart(removedItem);
-  };
+export const Checkout = ({ itemToOrder }) => {
+  const [clientSecret, setClientSecret] = useState("");
+  const [dispatched, setDispatched] = useState(false);
 
-    
-
+  const amount = itemToOrder?.price;
+  useEffect(() => {
+    // Create PaymentIntent as soon as the page loads
+    ParadiseMinniApi.post("/create-payment-intent", {
+      amount: amount
+    });
+  }, []);
+  const handlePaymentIntent = async () => {};
   return (
-    <div className="checkout-container">
-      <div className="added-item-checkout">
-        {cart.map(({ id, title, author, price, img, amount }) => {
-          return (
-            <div className="card-checkout" key={id}>
-              <img src={img} alt="checkout img" />
-              <div className="info-container">
-                <h1>{title}</h1>
-                <p>{author}</p>
-              </div>
-              <strong>
-                <h1>Unit Price: {price}</h1>
-              </strong>
-              <div className="counter-checkout">
-              </div>
-
-              <div className="price-checkout">
-                <h1>Price: {(setIncrease, price)=> {
-                  console.log( setIncrease )
-                  console.log( price )
-                }} </h1>
-              </div>
-              <div className="button-remove-item-checkout">
-                <button onClick={() => handleRemovedItem(id)}>Remove</button>
-              </div>
-            </div>
-          );
-        })} 
+    <div
+      style={{
+        backgroundColor: "#ffff",
+        borderRadius: "15px",
+        padding: "20px",
+        minHeight: "80vh"
+      }}
+    >
+        <Link to='/'>
+        <div className="logo">
+          <img src={require("../images/logo-no-background.jpeg")} alt="logo" />
+        </div>
+      </Link>
+      <div>
+        <DeliveryAddress />
       </div>
-      <div className="checkout-final-description-container">
-        {cart.length === 0 ? <h1>Cart is empty</h1> : <h1>Checkout</h1>}
-
-        {console.log( cart.length )}
+      <button onClick={handlePaymentIntent}>Placed Order</button>
+      <div style={{ display: `${dispatched === false ? "none" : "auto"}` }}>
+        <PaymentElement clientSecret={clientSecret} />
       </div>
     </div>
   );
